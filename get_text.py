@@ -4,20 +4,19 @@ import re
 import csv
 
 # Open the PDF file
-pdf_document = fitz.open("xiaowangzi.pdf")
+pdf_document = fitz.open("factfulness_chinese.pdf")
 
 # Initialize a string to store the extracted text
 extracted_text = ""
 
-# Iterate through the pages until we find the chapter "II"
+# Iterate through the pages until we reach page 15
 for page_number in range(len(pdf_document)):
     page = pdf_document[page_number]
     text = page.get_text()
-    if "II" in text:
-        extracted_text += text.split("II")[0]
+    if page_number == 54:
         break
-    else:
-        extracted_text += text
+    extracted_text += text
+
 pdf_document.close()
 
 
