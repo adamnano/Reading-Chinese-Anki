@@ -2,12 +2,12 @@ import csv
 
 def find_matching_words():
     # Read words from words.csv into a list
-    with open('words.csv', 'r') as words_file:
+    with open('words_whole_book.csv', 'r') as words_file:
         words_reader = csv.reader(words_file)
         target_words = [row[0] for row in words_reader]
 
     # Process tocfl.csv and write to final_list.csv
-    with open('tocfl.csv', 'r') as tocfl_file, open('final_list.csv', 'w', newline='') as final_list_file:
+    with open('tocfl.csv', 'r') as tocfl_file, open('final_list_whole_book.csv', 'w', newline='') as final_list_file:
         tocfl_reader = csv.reader(tocfl_file)
         final_list_writer = csv.writer(final_list_file)
 

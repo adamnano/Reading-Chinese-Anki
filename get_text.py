@@ -13,8 +13,8 @@ extracted_text = ""
 for page_number in range(len(pdf_document)):
     page = pdf_document[page_number]
     text = page.get_text()
-    if page_number == 54:
-        break
+    # if page_number == 54:
+    #     break
     extracted_text += text
 
 pdf_document.close()
@@ -32,13 +32,13 @@ def extract_unique_words(text):
     unique_words = [word for word in unique_words if word.strip()]
     return unique_words
 
-data = extracted_text[300:]
+data = extracted_text[1:]
 
 # Call the function and print unique words
 unique_words = extract_unique_words(data)
 print(unique_words)
 
-file_name = "words.csv"
+file_name = "words_whole_book.csv"
 
 # Writing to a CSV file
 with open(file_name, mode='w', newline='') as file:
